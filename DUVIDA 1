@@ -1,0 +1,29 @@
+package lista1ex13;
+import java.util.Scanner;
+public class Lista1ex13 {
+
+   
+    public static void main(String[] args) {
+   Scanner input= new Scanner(System.in);
+        
+       double hora, min, seg, t1, t2, soma; 
+        
+        System.out.println("Escreva as horas do dia de hoje ");
+        hora =Double.valueOf(input.nextLine());
+        System.out.println("Escreva os minutos do dia de hoje ");
+       min = Double.valueOf(input.nextLine());
+        System.out.println("Escreva os segundos do dia de hoje ");
+       seg = Double.valueOf(input.nextLine());
+       
+       t1= hora*3600;
+       t2= min*60 ;
+       
+       soma= t1 + t2 + seg;
+       
+       
+        System.out.println("");
+        System.out.println("O total de segundos decorridos desde o início do dia são " +soma);
+  
+    }
+    
+}
