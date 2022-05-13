@@ -1,0 +1,62 @@
+package aula10;
+
+import java.util.Scanner;
+
+
+public class Aula10 {
+
+   
+    public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    
+    //var
+    char genero;
+    String nome,experiencia;
+    int idade, qtdMasc = 0, qtdFem = 0, qtdIndef = 0, qtdExp = 0, qtdSemExp = 0;
+    int mediaIdadeExp = 0, somaIdadeExp = 0, mediaIdadeSemExp = 0, somaIdadeSemExp = 0;
+    
+    //inicio
+ 
+    
+        do {
+        System.out.println("Informe seu nome: ");
+        nome = input.nextLine();
+        
+        System.out.println("Informe sua idade: ");
+        idade = Integer.valueOf(input.nextLine());
+        System.out.println("Tem experiencia na área? (S ou N): ");
+        experiencia = String.valueOf(input.nextLine()); 
+        System.out.println("Infore seu genero (M, F ou I): ");
+        genero = input.next().charAt(0);
+       
+        if(genero == 'M'){
+                qtdMasc++;
+            }else
+                if(genero == 'F'){
+                    qtdFem++;
+                }else
+                    qtdIndef++;
+            
+            if(experiencia == "S"){
+                qtdExp++;
+                somaIdadeExp = somaIdadeExp + idade;
+            }else
+                qtdSemExp++;
+                somaIdadeSemExp = somaIdadeSemExp + idade;
+        
+        } while(!nome.equals("FIM"));
+          
+        mediaIdadeExp = somaIdadeExp / qtdExp;
+        mediaIdadeSemExp = somaIdadeSemExp / qtdSemExp;    
+        System.out.println("Masculino: "+qtdMasc);
+        System.out.println("Feminino: "+qtdFem);
+        System.out.println("Com Exp: "+qtdExp);
+        System.out.println("Sem Exp: "+qtdSemExp);    
+        System.out.println("Media idade com Exp: "+mediaIdadeExp);
+        System.out.println("Media idade sem Exp: "+mediaIdadeSemExp);
+        
+        
+  }
+
+ }
+    
