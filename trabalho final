@@ -1,0 +1,142 @@
+public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);    
+        
+        char menu;
+        String[] cpf = new String[10];
+        String[] nome = new String[10];
+        String[] data = new String[10];
+        String cpf2;
+        boolean cpfTrue;
+        int n = 0;
+        char excluir, alterar;
+        String Nnome, Ndata;
+        
+        
+        do{
+        //MENU
+        System.out.println("MENU");
+        System.out.println("");
+        System.out.println("I-INCLUIR CLIENTE");
+        System.out.println("C-CONSULTAR CLIENTE");
+        System.out.println("E-EXCLUIR CLIENTE");
+        System.out.println("A-ALTERAR CLIENTE");
+        System.out.println("L-LISTAR CLIENTE");
+        System.out.println("S-SAIR");
+        menu = input.nextLine().charAt(0);
+        
+        //OPCAO I
+        if(menu == 'i' || menu=='I'){
+            System.out.println("Digite o CPF: ");
+            cpf[n] = input.nextLine();
+            System.out.println("Informe o nome do cliente: ");
+            nome[n] = input.nextLine();
+            System.out.println("Informe a data de nascinemnto do cliente");
+            data[n] = input.nextLine();
+            n++;
+            }
+        //MOSTRAR CLIENTE
+        else    
+            if(menu == 'c' || menu=='C'){
+                System.out.println("Digite o CPF: ");
+                cpf2 = input.nextLine();
+                for (int i = 0; i < n; i++) {
+                    cpfTrue = cpf2.equals(cpf[i]);
+                    if(cpfTrue == true){
+                        System.out.println("Nome: "+nome[i]);
+                        System.out.println("Data de nascimento: "+data[i]);
+                    }
+                    else
+                        if(cpfTrue == false){
+                            System.out.println("Cliente Inexistente");
+                        }
+                }
+                
+            }
+            //OPCAO E
+            else
+                if(menu == 'e' || menu=='E'){
+                    System.out.println("Digite o CPF: ");
+                    cpf2 = input.nextLine();
+                    for (int i = 0; i < n; i++) {
+                        cpfTrue = cpf2.equals(cpf[i]);
+                        if(cpfTrue == true){
+                            System.out.println("Nome: "+nome[i]);
+                            System.out.println("Data de nascimento: "+data[i]);
+                            System.out.println();
+                            //EXCLUIR CLIENTE
+                            System.out.println("Deseja EXCLUIR essa cliente?(S ou N)");
+                            excluir = input.nextLine().charAt(0);
+                            if(excluir == 'N'){
+                                System.out.println("e Exclusão Cancelada");
+                            }
+                            else
+                                if(excluir == 'S'){
+                                    for (int j = i; j < n; j++) {
+                                        int k = j+1;
+                                        nome[k] = nome[j];
+                                        data[k]= data[j];
+                                        cpf[k] = cpf[j];
+                                    }
+                                }
+                        }
+                        else
+                            if(cpfTrue == false){
+                                System.out.println("Cliente Inexistente");
+                            }
+                    }
+                }
+                else
+                    if(menu == 'a' || menu=='A'){
+                        System.out.println("Digite o CPF: ");
+                        cpf2 = input.nextLine();
+                        for (int i = 0; i < n; i++) {
+                            cpfTrue = cpf2.equals(cpf[i]);
+                            if(cpfTrue == true){
+                                System.out.println("Nome: "+nome[i]);
+                                System.out.println("Data de nascimento: "+data[i]);
+                                System.out.println();
+                                //SUBSTITUIR CLIENTE
+                                System.out.println("Novo nome: ");
+                                Nnome = input.nextLine();
+                                System.out.println("Nova data de nascinemto: ");
+                                Ndata = input.nextLine();
+                                System.out.println("Voce deseja alterar os dados?(S ou N) ");
+                                alterar = input.nextLine().charAt(0);
+                                if(alterar == 'S'){
+                                    nome[i] = Nnome;
+                                    data[i] = Ndata;
+                                }
+                                else
+                                    if(alterar == 'N'){
+                                        System.out.println("Alteração Cancelada");
+                                    }
+                            }
+                            else
+                                if(cpfTrue == false){
+                                    System.out.println("Cliente Inexistente");
+                                }
+                        }
+                    }
+                    else
+                        if(menu == 'l' || menu == 'L'){
+                            for (int i = 0; i < n; i++) {
+                                System.out.println("Cliente "+i);
+                                    System.out.println("CPF: "+cpf[i]);
+                                    System.out.println("Nome: "+nome[i]);
+                                    System.out.println("Data de nascimento: "+data[i]);
+                                    System.out.println();
+                            }
+                        }
+        
+        }while(menu != 'S');
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    }
