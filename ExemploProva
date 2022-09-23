@@ -1,0 +1,105 @@
+// COMPARAR DATAS POR "PERIOD"
+
+
+// Classe 
+
+public class Paciente {
+    private String nome;
+    private LocalDate dataNascimento;
+    private LocalDate dataConsulta;
+    private int anos;
+    private int meses;
+    private int dias;
+
+    public Paciente(String nome, LocalDate dataNascimento, LocalDate dataConsulta) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.dataConsulta = dataConsulta;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
+
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
+
+    public LocalDate getDataConsulta() {
+        return dataConsulta;
+    }
+
+    public void setDataConsulta(LocalDate dataConsulta) {
+        this.dataConsulta = dataConsulta;
+    }
+
+    public int getAnos() {
+        return anos;
+    }
+
+    public void setAnos(int anos) {
+        this.anos = anos;
+    }
+
+    public int getMeses() {
+        return meses;
+    }
+
+    public void setMeses(int meses) {
+        this.meses = meses;
+    }
+
+    public int getDias() {
+        return dias;
+    }
+
+    public void setDias(int dias) {
+        this.dias = dias;
+    }
+    
+    public void calcula(){
+        
+        Period periodoEntreDatas = Period.between(this.dataNascimento, this.dataConsulta);
+        this.anos = periodoEntreDatas.getYears();
+        this.meses = periodoEntreDatas.getMonths();
+        this.dias = periodoEntreDatas.getDays();
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente: " + nome + " tem " + anos + " anos," + meses + " meses, " + dias + " dias";
+    }
+    
+    ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+    
+    // MAIN
+    
+    public class Main {
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Informe o nome: ");
+        String nome = input.nextLine();
+        System.out.println("Informe a data de nascimento: ");
+        String dataTxt = input.nextLine();
+        LocalDate dataNascimento = LocalDate.parse(dataTxt, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate dataAtual = LocalDate.now();
+        
+        Paciente paciente = new Paciente(nome, dataNascimento, dataAtual);
+        
+        paciente.calcula();
+        
+        System.out.println(paciente.toString());
+    }
+    
+}
