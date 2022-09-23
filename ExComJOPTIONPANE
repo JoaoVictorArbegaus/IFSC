@@ -1,0 +1,120 @@
+// IMC
+
+// CLASSE 
+
+public class Calculo {
+    
+    private float peso;
+    private float altura;
+    private String nome;
+    private float imc;
+    private String classificacao;
+
+    public Calculo(float peso, float altura, String nome) {
+        this.peso = peso;
+        this.altura = altura;
+        this.nome = nome;
+    }
+    
+    public void calculaImc() {
+        this.imc = peso / (this.altura * this.altura);
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+
+    public float getAltura() {
+        return altura;
+    }
+
+    public void setAltura(float altura) {
+        this.altura = altura;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public float getImc() {
+        return imc;
+    }
+
+    public String getClassificacao() {
+        return classificacao;
+    }
+
+    public void determinaClassificacao() {
+        
+        if(this.imc < 18.5){
+            this.classificacao = "Magreza";
+        }
+        else{
+            if(this.imc < 25){
+                this.classificacao = "Normal";
+            }
+            else{
+                if(this.imc < 30){
+                    this.classificacao = "Sobrepeso";
+                }
+                else{
+                    if(this.imc < 40) {
+                        this.classificacao = "Obesidade";
+                    }
+                    else{
+                        this.classificacao = "Obesidade Grave";
+                    }
+                }    
+            }
+        }
+        
+        
+        
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + nome + ", IMC:" + imc + ", Classificacao:" + classificacao;
+    }
+    
+    
+    
+    
+    
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// MAIN
+
+public class Main {
+
+    
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        String nome = JOptionPane.showInputDialog("Digite o nome: ");
+        String pesoTxt = JOptionPane.showInputDialog("Informe o peso: ");
+        float peso = Float.parseFloat(pesoTxt);
+        String alturaTxt = JOptionPane.showInputDialog("Informe a altura: ");
+        float altura = Float.parseFloat(alturaTxt);
+        
+        
+        Calculo pessoa1 = new Calculo(peso, altura, nome);
+        
+        pessoa1.calculaImc();
+        pessoa1.determinaClassificacao();
+        
+        JOptionPane.showMessageDialog(null, pessoa1.toString());
+        
+    }
+    
+}
