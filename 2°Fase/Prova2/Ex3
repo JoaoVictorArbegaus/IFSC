@@ -1,0 +1,162 @@
+//3. Faça um programa Java que para um conjunto de contas de um banco apresente:
+a) O total de contas do banco;
+b) O número da conta que possui o maior saldo;
+c) O total de contas cujo saldo seja negativo;
+d) Verifique se a conta número ‘111’ está presente na listaContas do banco. Caso
+positivo, mostre todos os seus dados.
+
+--------------------------------------------------------------------------------------
+
+PRINCIPAL:
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+public class Principal {
+    public static void main(String[] args) {
+        
+        Banco banco = new Banco();
+        banco.setNome("Banco teste");
+        
+        ArrayList<Conta> listaContas = new ArrayList();
+        
+        for (int i = 0; i < 4; i++) {
+            Conta conta = new Conta();
+            String numero = JOptionPane.showInputDialog("Numero");
+            conta.setNumero(numero);
+            conta.setSaldo(100);
+            
+            listaContas.add(conta);
+        }
+        
+        banco.setListaContas(listaContas);
+   
+        // a)
+        JOptionPane.showMessageDialog(null,
+                banco.getListaContas().size());
+        
+        // b)
+        Conta conta = banco.determineContaMaiorSaldo();
+        JOptionPane.showMessageDialog(null,
+                conta.toString());
+        
+        //c)
+        int total = banco.determineContaSaldoNegativo();
+        JOptionPane.showMessageDialog(null,
+                total);
+        
+        // d)
+        JOptionPane.showMessageDialog(null,
+                banco.verificaConta("111"));
+    }
+}
+
+---------------------------------------------------------------------------------------------------
+
+Class Conta:
+
+public class Conta {
+    private String numero;
+    private float saldo;
+    
+    public Conta() {}
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta{" + "numero=" + numero 
+                + ", saldo=" + saldo + '}';
+    }
+    
+}
+
+--------------------------------------------------------------
+Class Banco
+
+import java.util.ArrayList;
+
+public class Banco {
+    private String nome;
+    private ArrayList<Conta> listaContas;
+    
+    public Banco() {}
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public ArrayList<Conta> getListaContas() {
+        return listaContas;
+    }
+
+    public void setListaContas(ArrayList<Conta> listaContas) {
+        this.listaContas = listaContas;
+    }
+    
+    public Conta determineContaMaiorSaldo() {
+        Conta contaMaiorSaldo;
+
+        contaMaiorSaldo = this.listaContas.get(0);
+        float maior = this.listaContas.get(0).getSaldo();
+        
+        for (Conta conta : listaContas) {
+            if (conta.getSaldo() > maior) {
+                maior = conta.getSaldo();
+                contaMaiorSaldo = conta;
+            }
+        }
+        
+        return contaMaiorSaldo;
+    }
+    
+    public int determineContaSaldoNegativo() {
+        int total = 0;
+        
+        for (Conta conta : listaContas) {
+            if (conta.getSaldo() < 0) {
+                total++;
+            }
+        }
+        return total;
+    }
+
+    
+    public Conta verificaConta(String numero) {
+        
+        for (Conta conta : listaContas) {
+            if (conta.getNumero().equals(numero)) {
+                return conta;
+            }
+        }
+        return null;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Banco{" + "nome=" + nome 
+                + ", listaContas=" + listaContas + '}';
+    }
+
+   
+   
+}
