@@ -1,0 +1,103 @@
+1. Crie uma classe chamada Contato com nome e telefone. Insira diversos contatos em
+uma lista (use um ArrayList) e responda:
+a) Qual é o número de contatos armazenados na lista;
+b) Apresente todos os contatos armazenados na lista;
+c) Apresente os dados do segundo contato;
+d) Informe se a lista está ou não vazia;
+e) Remova o primeiro contato;
+f) Insira um contato na primeira posição;
+g) Atualize o quarto contato como os seguinte dados: nome = ”Ana” e telefone =
+“12345”.
+
+--------------------------------------------------------------------------------------------
+
+MAIN
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        ArrayList<Contato> listaContatos = new ArrayList();
+            
+        String nTxt = JOptionPane.showInputDialog("n");
+        int n = Integer.parseInt(nTxt);
+        
+        for (int i = 1; i <= n; i++) {
+            String nome = JOptionPane.showInputDialog("nome");
+            String fone = JOptionPane.showInputDialog("fone");
+            
+            Contato contato = new Contato();
+            contato.setNome(nome);
+            contato.setTelefone(fone);
+            
+            listaContatos.add(contato);
+        }             
+        
+        //a)
+        JOptionPane.showMessageDialog(null, listaContatos.size());
+        
+        //b)
+        JOptionPane.showMessageDialog(null, listaContatos.toString());
+        
+        //c)
+        JOptionPane.showMessageDialog(null, 
+                listaContatos.get(1).toString() );
+        
+        // d)
+        JOptionPane.showMessageDialog(null, "Está vazia: "+ listaContatos.isEmpty());
+        
+        // e)
+        listaContatos.remove(0);
+        JOptionPane.showMessageDialog(null, listaContatos.toString());
+        
+        // f)
+        Contato novoContato = new Contato();
+        novoContato.setNome("teste");
+        novoContato.setTelefone("1234");
+        listaContatos.add(0,novoContato);
+        
+        // g)
+//        listaContatos.get(3).setNome("Ana");
+//        listaContatos.get(3).setTelefone("12345");
+
+        Contato c = listaContatos.get(3);
+        c.setNome("Ana");
+        c.setTelefone("12345");
+        JOptionPane.showMessageDialog(null,listaContatos.toString());
+    }
+}
+
+--------------------------------------------------------------------------------
+
+Class Contato
+
+public class Contato {
+    private String nome;
+    private String telefone;
+    
+    public Contato() {}
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    @Override
+    public String toString() {
+        return "Contato{" + "nome=" + nome + ", telefone=" + telefone + '}';
+    }
+ 
+}
