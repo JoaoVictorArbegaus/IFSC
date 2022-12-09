@@ -1,12 +1,12 @@
-Acrescente duas novas pizzas ao projeto versão_3
-• Pizza pepperoni implementa:
-o preparar: queijo, pimenta e salame
-o assar: 15 min
-o cobrar: R$ 18,00
-• Pizza bahiana implementa:
-o preparar: mussarela, calabresa moída, pimenta, azeitonas
-o assar: 20 min
-o cobrar: R$ 21,00
+Versão_1
+• Classe PizzaCalabresa implementa: preparar, assar, cobrar
+• Classe Forno implementa: fabricar
+• Classe Programa: usada para gerenciar a aplicação e quando
+executada produz:
+• Se for preciso aumentar as opções de pizza, será necessário criar
+uma nova classe
+▪ Por exemplo, pizza napolitana
+▪ Alterar forno para fabricar a nova pizza
 
 =================================================
 
