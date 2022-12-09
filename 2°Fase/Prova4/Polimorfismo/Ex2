@@ -1,0 +1,124 @@
+Versão_2
+• Classe PizzaCalabresa implementa: preparar, assar, cobrar
+• Classe PizzaNapolitana implementa: preparar, assar, cobrar
+• Classe Forno implementa: fabricar com assinatura diferente
+▪ Pizza calabresa
+▪ Pizza napolitana
+• Classe Programa: quando executada produz:
+
+public class Forno {
+
+	public void fabricar(Pizza pizza) {
+		pizza.preparar();
+		pizza.assar();
+		pizza.cobrar();
+	}
+	
+}
+
+
+public class Pizza {
+
+	public void preparar() {
+		//System.out.println("molho, queijo, calabresa, cebola e tomate");
+	}
+	
+	public void assar() {
+		//System.out.println("15 min");
+	}
+	
+	public void cobrar() {
+		//System.out.println("R$ 12,00");
+	}
+	
+}
+
+
+
+public class PizzaAlexandre extends Pizza {
+        
+        public void preparar() {
+		System.out.println("molho, queijo e cebola");
+	}
+	
+	public void assar() {
+		System.out.println("25 min");
+	}
+	
+	public void cobrar() {
+		System.out.println("R$ 8,00");
+	}
+    
+}
+
+
+
+
+
+
+public class PizzaCalabresa extends Pizza{
+
+	public void preparar() {
+		System.out.println("molho, queijo, calabresa, cebola e tomate");
+	}
+	
+	public void assar() {
+		System.out.println("15 min");
+	}
+	
+	public void cobrar() {
+		System.out.println("R$ 12,00");
+	}
+	
+}
+
+
+
+
+
+
+
+
+public class PizzaNapolitana extends Pizza{
+
+	public void preparar() {
+		System.out.println("molho, presunto, queijo, tomate e oregano");
+	}
+	
+	public void assar() {
+		System.out.println("19 min");
+	}
+	
+	public void cobrar() {
+		System.out.println("R$ 18,00");
+	}
+
+}
+
+
+
+
+
+
+public class Programa {
+
+	public static void main(String[] args) {
+		
+		Forno forno = new Forno();
+		
+		// fabricando a calabresa
+		PizzaCalabresa pizzaCalabresa = new PizzaCalabresa();
+		forno.fabricar(pizzaCalabresa);
+		
+		// fabricando a napolitana
+		PizzaNapolitana pizzaNapolitana = new PizzaNapolitana();
+		forno.fabricar(pizzaNapolitana);
+                
+                PizzaAlexandre pizzaAlex = new PizzaAlexandre();
+                forno.fabricar(pizzaAlex);
+
+	}
+	
+}
+
+
