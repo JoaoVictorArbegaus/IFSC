@@ -1,0 +1,60 @@
+Acrescente duas novas pizzas ao projeto versão_3
+• Pizza pepperoni implementa:
+o preparar: queijo, pimenta e salame
+o assar: 15 min
+o cobrar: R$ 18,00
+• Pizza bahiana implementa:
+o preparar: mussarela, calabresa moída, pimenta, azeitonas
+o assar: 20 min
+o cobrar: R$ 21,00
+
+=================================================
+
+//Class programa
+
+public class Programa {
+
+	public static void main(String[] args) {
+		
+		Forno forno = new Forno();
+		
+		PizzaCalabresa pizzaCalabresa = new PizzaCalabresa();
+
+		forno.fabricar(pizzaCalabresa);
+	}
+	
+}
+
+==============================================
+
+/Class pizzaCalabresa
+
+public class PizzaCalabresa {
+
+	public void preparar() {
+		System.out.println("molho, queijo, calabresa, cebola e tomate");
+	}
+	
+	public void assar() {
+		System.out.println("15 min");
+	}
+	
+	public void cobrar() {
+		System.out.println("R$ 12,00");
+	}
+	
+}
+
+===================================================
+
+//clas forno
+
+public class Forno {
+
+	public void fabricar(PizzaCalabresa pizzaCalabresa) {
+		pizzaCalabresa.preparar();
+		pizzaCalabresa.assar();
+		pizzaCalabresa.cobrar();
+	}
+	
+}
