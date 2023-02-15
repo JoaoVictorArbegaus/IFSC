@@ -1,0 +1,70 @@
+public static void main(String[] args) {
+       Scanner input=new Scanner(System.in);
+        Conta a=new Conta(234,"James",1000);
+        System.out.println("Digite um valor ");
+        float valor=Float.valueOf(input.nextLine());
+        a.sacar(valor);
+        a.extrato();
+        
+       
+    }
+    
+    ------------------------------------------------------------
+    
+    package javaapplication2;
+
+
+public class Conta {
+    int numero;
+    String titular;
+    float saldo;
+
+    public Conta(int numero, String titular, float saldo) {
+        this.numero = numero;
+        this.titular = titular;
+        this.saldo = saldo;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public void setTitular(String titular) {
+        this.titular = titular;
+    }
+
+    public float getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(float saldo) {
+        this.saldo = saldo;
+    }
+    
+    public void sacar(float valor){
+    if(valor>this.saldo){
+        System.out.println("Nao e possivel sacar um valor maior que o da conta");
+                }
+    else{
+        this.saldo=this.saldo-valor;
+    }}
+    
+    
+    
+    public void depositar(float valor){
+    this.saldo=this.saldo+valor;
+    }
+    public void extrato(){
+        System.out.println("Conta{" + "numero=" + numero + ", titular=" + titular + ", saldo=" + saldo + '}');
+    }
+
+  
+}
