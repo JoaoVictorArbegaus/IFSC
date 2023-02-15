@@ -1,0 +1,51 @@
+public static void main(String[] args) {
+        Empregado e=new Empregado("James","Chicoliro",2000);
+        e.salarioAnual();
+        
+        Empregado e2=new Empregado("Takeshi","Mamoru",5000);
+        e2.setSalario(e2.salario+1000);
+        
+        e2.salarioAnual();
+    }
+    
+    -------------------------------------------------------
+    
+    public class Empregado {
+    String nome;
+    String sobrenome;
+    float salario;
+
+    public Empregado(String nome, String sobrenome, float salario) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.salario = salario;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public float getSalario() {
+        return salario;
+    }
+
+    public void setSalario(float salario) {
+        this.salario = salario;
+    }
+    public void salarioAnual(){
+        System.out.println("Salario anual: "+this.salario*12);
+    }
+    
+}
