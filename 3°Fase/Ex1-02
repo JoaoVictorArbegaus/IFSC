@@ -1,0 +1,100 @@
+public class Ex12702 {
+
+
+    public static void main(String[] args) {
+        Pessoa aluno = new Aluno(1234,400,"Joao", 800123);
+        Pessoa professor = new Professor(23413, 2000, "Fernando", 123534);
+        
+        aluno.fala();
+        aluno.perfil();
+        
+        professor.fala();
+        professor.perfil();
+        
+    }
+    
+    --------------------------------------------------------------
+    
+    public class Pessoa {
+    protected String nome;
+    protected int cpf;
+
+    public Pessoa(String nome, int cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
+    
+    public void fala(){
+        
+    }
+    
+    public void perfil(){
+        
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "nome=" + nome + ", cpf=" + cpf + '}';
+    }
+    
+    ---------------------------------------------------------------------------------
+    
+    public class Professor extends Pessoa {
+    private int siape;
+    private double salario;
+
+    public Professor(int siape, double salario, String nome, int cpf) {
+        super(nome, cpf);
+        this.siape = siape;
+        this.salario = salario;
+    }
+    
+    @Override
+    public void fala(){
+        System.out.println("Alguma duvida?");
+    }
+    
+    @Override
+    public void perfil(){
+        System.out.println("Nome: "+this.nome+", CPF: "+cpf+", Siape: "+siape+", Salario: R$"+ salario);
+        
+    }
+    
+    ------------------------------------------------------
+    
+    public class Aluno extends Pessoa {
+    private int matricula;
+    private double bolsa;
+
+    public Aluno(int matricula, double bolsa, String nome, int cpf) {
+        super(nome, cpf);
+        this.matricula = matricula;
+        this.bolsa = bolsa;
+    }
+
+    @Override
+    public void fala(){
+        System.out.println("Professor, nao entendi");
+    }
+    
+    @Override
+    public void perfil(){
+        System.out.println("Nome: "+this.nome+", CPF: "+cpf+", Matricula: "+matricula+", Bolsa: R$"+ bolsa);
+        
+    }
