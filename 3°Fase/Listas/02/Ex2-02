@@ -1,0 +1,73 @@
+public class Ex22702 {
+
+    public static void main(String[] args) {
+        Animal cachorro = new Cachorro("Bidu", 10);
+        Animal gato = new Gato("Bigode", 5);
+        
+        cachorro.emitirSom();
+        gato.emitirSom();
+        
+        
+    }
+    
+    ------------------------------------------
+    
+    public class Animal {
+    protected String nome;
+    protected float peso;
+
+    public Animal(String nome, float peso) {
+        this.nome = nome;
+        this.peso = peso;
+    }
+    
+    public void fazerExercicio(){
+        peso = this.peso - 2;
+    }
+    
+    public void emitirSom(){
+        System.out.println("aaaarrrghhhhhh");
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public float getPeso() {
+        return peso;
+    }
+
+    public void setPeso(float peso) {
+        this.peso = peso;
+    }
+    
+    ------------------------
+    
+    public class Gato extends Animal {
+
+    public Gato(String nome, float peso) {
+        super(nome, peso);
+    }
+    
+    @Override
+    public void emitirSom(){
+        System.out.println("Miaaaaaaaaau");
+    }
+    
+    -------------------------------------
+    
+    public class Cachorro extends Animal {
+
+    public Cachorro(String nome, float peso) {
+        super(nome, peso);
+    }
+
+    @Override
+    public void emitirSom(){
+        System.out.println("Au Au");
+    }
+    
